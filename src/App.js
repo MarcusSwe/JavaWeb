@@ -36,10 +36,19 @@ function App() {
     setPokemons(changed);
   }
 
-  function checkBoxChanged(i, props){
+  function checkBoxChanged(i, h){
     const cBoxchanged = [...pokemons];
-    cBoxchanged[i].Present = props;
+    cBoxchanged[i].Present = h;
     setPokemons(cBoxchanged);
+  }
+
+  function updateUser(i, firstname, lastname, age, Ypresent){
+    const updateUsers = [...pokemons];
+    updateUsers[i].firstName = firstname;
+    updateUsers[i].lastName = lastname;
+    updateUsers[i].Age = age;
+    updateUsers[i].Present = Ypresent;
+    setPokemons(updateUsers);
   }
 
   return (
@@ -49,6 +58,7 @@ function App() {
         removePokemon = {removePokemon}
         addUser = {addUser}
         checkBoxChanged = {checkBoxChanged}
+        updateUser = {updateUser}
         />        
       </div>  
   )

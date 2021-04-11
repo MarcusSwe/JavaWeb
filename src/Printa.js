@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react'
 
+
 let x = "";
 let y = false;
 let i = 0;
+let name = "";
+let lastName = "";
+let age = 0;
+//let present = false;
 
 export default function PrintaPokemon(props){
 
 const [sida, setSida] = useState(false)
-const [Xpokemons, XsetPokemons] = useState([])
+const [Xpokemons, XsetPokemons] = useState()
+const [Xlastname, XsetLastname] = useState()
+const [Xnumber, XsetNumber] = useState()
+const [Xpresent, XsetPresent] = useState()
 
 
 // lägg fetch från spring här istället????
@@ -29,18 +37,19 @@ const [Xpokemons, XsetPokemons] = useState([])
 function PrintaPoks(props){  
   return (
     <div>
-          {props.poke.map((p, index) => <div key={p.index}  index={index} className="test">          
+          <span className="Kurs">Kursnäro</span>
+          {props.poke.map((p, index) => <div key={p.index}  index={index} className="test">                    
           <p>{p.firstName} </p>
           &nbsp;
           <p>{p.lastName} </p>
           &nbsp;
           &nbsp;
          <label for={p.index}><input type="checkbox" checked={p.Present} onChange={e => {props.checkBoxChanged(index, e.target.checked)}}></input></label>
+          <p>Present</p>
           &nbsp;
           &nbsp;
           &nbsp;
-          &nbsp;
-          <button onClick={e => {setSida(true); x = p.name; y = p.url; i = index}}> info </button>
+          <button onClick={e => {setSida(true); XsetPokemons(p.firstName); XsetLastname(p.lastName); i = index; XsetNumber(p.Age); XsetPresent(p.Present)}}> info </button>
           &nbsp;
           <button onClick={e => {props.removePokemon(index)}}>remove</button>          
           </div>)}
@@ -50,12 +59,17 @@ function PrintaPoks(props){
 
 function PrintaInfo(props){ 
 return <div>   
-   <img src={Xpokemons[1].back_default} alt={x}/>
-   <p><span className="titel">{x}</span></p>
-   <p>Abilites: {Xpokemons[0].map((p) => <span key={p.ability.name} className="ability">{p.ability.name}<>, </></span>)} </p>
-   <p>Height: <span className="ability">{Xpokemons[2]}</span> </p>
-   <p>Moves: {Xpokemons[3].map((p) => <span key={p.move.name} className="ability">{p.move.name}<>, </></span>)} </p>
-   <button onClick={e => {setSida(false); props.addUrl(i, Xpokemons[1].back_default)}}> back </button>   
+   <span className="Kurs">Kursnäro</span>
+   <p>Edit Student</p>
+   
+   <p>Name: <input type="text" value={Xpokemons} onChange={e => {XsetPokemons(e.target.value)}}/></p>
+   <p>Lastname: <input type="text" value={Xlastname} onChange={e =>{XsetLastname(e.target.value)}}></input></p>
+
+   <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
+   <p>Present: <input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/></p>
+
+   <button onClick={e => {setSida(false); props.updateUser(i, Xpokemons, Xlastname, Xnumber, Xpresent)}}> edit/back </button>   
+   <button onClick={e => {setSida(false); props.removePokemon(props.index)}}>remove</button>          
    </div>   
 }
 
