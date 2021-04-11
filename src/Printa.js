@@ -51,8 +51,21 @@ function PrintaPoks(props){
           &nbsp;
           <button onClick={e => {setSida(true); XsetPokemons(p.firstName); XsetLastname(p.lastName); i = index; XsetNumber(p.Age); XsetPresent(p.Present)}}> info </button>
           &nbsp;
-          <button onClick={e => {props.removePokemon(index)}}>remove</button>          
+          <button onClick={e => {props.removePokemon(index)}}>remove</button>     
+ 
           </div>)}
+          <div></div>    
+          <div></div>
+          <div></div>
+          <p>Add Student</p>
+   
+          <p>Name: <input type="text" value={Xpokemons} onChange={e => {XsetPokemons(e.target.value)}}/></p>
+          <p>Lastname: <input type="text" value={Xlastname} onChange={e =>{XsetLastname(e.target.value)}}></input></p>
+
+          <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
+          <p>Present: <input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/></p>
+
+          <button onClick={e => {props.addUser(Xpokemons, Xlastname, Xnumber, Xpresent)}}> Create </button>  
     </div>
   )
 }

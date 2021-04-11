@@ -30,9 +30,9 @@ function App() {
    setPokemons(removed);
   }
 
-  function addUser(Xpokemons){
+  function addUser(firstname, lastname, age, Ypresent){
     const changed = [...pokemons];
-    changed.push(Xpokemons);
+    changed.push({firstName: firstname, lastName: lastname, age:age, Present:Ypresent})    
     setPokemons(changed);
   }
 
