@@ -35,6 +35,7 @@ const [Xpresent, XsetPresent] = useState()
 
 
 function PrintaPoks(props){  
+ 
   return (
     <div>
           <span className="Kurs">Kursnäro</span>
@@ -56,7 +57,7 @@ function PrintaPoks(props){
           </div>)}
           <div></div>    
           <div></div>
-          <div></div>
+          <div>
           <p>Add Student</p>
    
           <p>Name: <input type="text" value={Xpokemons} onChange={e => {XsetPokemons(e.target.value)}}/></p>
@@ -65,7 +66,8 @@ function PrintaPoks(props){
           <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
           <p>Present: <input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/></p>
 
-          <button onClick={e => {props.addUser(Xpokemons, Xlastname, Xnumber, Xpresent)}}> Create </button>  
+          <button onClick={e => {props.addUser(Xpokemons, Xlastname, Xnumber, Xpresent); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}> Create </button>  
+          </div>
     </div>
   )
 }
@@ -81,7 +83,7 @@ return <div>
    <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
    <p>Present: <input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/></p>
 
-   <button onClick={e => {setSida(false); props.updateUser(i, Xpokemons, Xlastname, Xnumber, Xpresent)}}> edit/back </button>   
+   <button onClick={e => {setSida(false); props.updateUser(i, Xpokemons, Xlastname, Xnumber, Xpresent); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}> edit/back </button>   
    <button onClick={e => {setSida(false); props.removePokemon(props.index)}}>remove</button>          
    </div>   
 }
