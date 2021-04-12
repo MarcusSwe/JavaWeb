@@ -79,7 +79,7 @@ return <div>
    <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
    <div className="omega"><label className="check"><input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/><p className="box"></p></label></div>
    <button className="square shape" onClick={e => {setSida(false); props.updateUser(i, Xpokemons, Xlastname, Xnumber, Xpresent); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}> <span class="text2">back</span> </button>   
-   <button className="square shape" onClick={e => {setSida(false); props.removePokemon(props.index)}}><span class="text2">del</span></button>          
+   <button className="square shape" onClick={e => {setSida(false); props.removePokemon(i); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}><span class="text2">del</span></button>          
    </div>   
 }
 
