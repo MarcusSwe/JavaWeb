@@ -41,7 +41,7 @@ $shape-size: 45;
     font-weight: 500;
     @include position(left, 50% null null 50%);
     //@include transform(translate(-50%, -50%));
-    font-size: 10px;
+    font-size: 14px;
     text-align: left;
     line-height: 1;
     color: white;
@@ -51,9 +51,9 @@ $shape-size: 45;
 
 
 // Styling
-html, body {
+/*html, body {
     @include size(100%);
-}
+}*/
 
 
 
@@ -78,7 +78,7 @@ html, body {
     input {
       display: none;
       &:checked + .box {
-        background-color: #b3ffb7;
+        background-color: #2EC4B6;
         
         &:after {
           top: 0;
@@ -87,11 +87,11 @@ html, body {
     }
     
     .box {
-      width: 100%;
-      height: 100%;
+      width: 70%;
+      height: 70%;
       transition: all 1.1s cubic-bezier(.19,1,.22,1);
       border: 2px solid transparent;
-      background-color: white;
+      background-color: #2EC4B6;
       position: relative;
       overflow: hidden;
       cursor: pointer;
@@ -103,7 +103,7 @@ html, body {
         position: absolute;
         border-left: 7.5px solid;
         border-bottom: 7.5px solid;
-        border-color: #40c540;
+        border-color: #fafafa;
         transform: rotate(-45deg) translate3d(0,0,0);
         transform-origin: center center;
         transition: all 1.1s cubic-bezier(.19,1,.22,1);
@@ -114,4 +114,6 @@ html, body {
         margin: auto;
       }
     }
+    
   }
+

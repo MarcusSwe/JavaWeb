@@ -49,13 +49,13 @@ function PrintaPoks(props){
          
           <label className="check" for={p.index}><input type="checkbox" checked={p.Present} onChange={e => {props.checkBoxChanged(index, e.target.checked)}}></input><p className="box"></p></label>
          
-          <p>Present</p>
+          
           &nbsp;
           &nbsp;
           &nbsp;
           <button className="square shape" onClick={e => {setSida(true); XsetPokemons(p.firstName); XsetLastname(p.lastName); i = index; XsetNumber(p.Age); XsetPresent(p.Present)}}> <span class="text2">edit</span> </button>
           &nbsp;
-          <button className="square shape" onClick={e => {props.removePokemon(index)}}><span class="text2">remove</span></button>     
+          <button className="square shape" onClick={e => {props.removePokemon(index)}}><span class="text2">del</span></button>     
               
           </div>)}
           <div></div>    
@@ -64,12 +64,14 @@ function PrintaPoks(props){
           <p>Add Student</p>
    
           <p>Name: <input type="text" value={Xpokemons} onChange={e => {XsetPokemons(e.target.value)}}/></p>
+          
           <p>Lastname: <input type="text" value={Xlastname} onChange={e =>{XsetLastname(e.target.value)}}></input></p>
 
           <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
-          <p>Present: <input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/></p>
-
-          <button onClick={e => {props.addUser(Xpokemons, Xlastname, Xnumber, Xpresent); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}> Create </button>  
+          
+          <div className="omega"><label className="check"><input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/><p className="box"></p></label></div>
+          <button className="square shape" onClick={e => {props.addUser(Xpokemons, Xlastname, Xnumber, Xpresent); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}> <span class="text2">add</span> </button>  
+          
           </div>
     </div>
   )
@@ -84,10 +86,10 @@ return <div>
    <p>Lastname: <input type="text" value={Xlastname} onChange={e =>{XsetLastname(e.target.value)}}></input></p>
 
    <p>Age: <input type="number" value={Xnumber} onChange={e =>{XsetNumber(e.target.value)}}/></p>
-   <p>Present: <input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/></p>
+   <div className="omega"><label className="check"><input type="checkbox" checked={Xpresent} onChange={e =>{XsetPresent(e.target.checked)}}/><p className="box"></p></label></div>
 
    <button className="square shape" onClick={e => {setSida(false); props.updateUser(i, Xpokemons, Xlastname, Xnumber, Xpresent); XsetPokemons(""); XsetLastname(""); XsetNumber(""); XsetPresent(true)}}> <span class="text2">back</span> </button>   
-   <button className="square shape" onClick={e => {setSida(false); props.removePokemon(props.index)}}><span class="text2">remove</span></button>          
+   <button className="square shape" onClick={e => {setSida(false); props.removePokemon(props.index)}}><span class="text2">del</span></button>          
    </div>   
 }
 
