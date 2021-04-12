@@ -33,7 +33,7 @@ function App() {
 
   function addUser(firstname, lastname, age, Ypresent){
     const changed = [...pokemons];
-    changed.push({firstName: firstname, lastName: lastname, age:age, Present:Ypresent})    
+    changed.push({firstName: firstname, lastName: lastname, Age:age, Present:Ypresent})    
     setPokemons(changed);
   }
 
