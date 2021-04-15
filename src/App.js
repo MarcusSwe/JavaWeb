@@ -28,10 +28,22 @@ function App() {
     fetchPokemons();        
   },[omegaHook]);
 
- function removePokemon(x){
-   const removed = [...pokemons];
-   removed.splice(x,1);   
-   setPokemons(removed);
+ 
+ 
+  function removePokemon(x){
+  
+   let omega = Math.floor(Math.random()* 10000000000);
+
+    async function fetchDel(){
+      const resp = await fetch(`http://localhost:8080/api/student/${pokemons[x].student_id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      if (resp.ok){
+          callOmegaHook(omega);
+      }
+    }
+    fetchDel();    
   }
 
 
