@@ -41,12 +41,12 @@ function PrintaPoks(props){
     <div className="topa"> 
           <span className="Kurs">Kursnäro</span>
           {props.poke.map((p, index) => <div key={p.index}  index={index} className="test">                    
-          <p>{p.firstName} </p>
+          <p>{p.name} </p>
           &nbsp;
-          <p>{p.lastName} </p>
+          <p>{p.last_name} </p>
           &nbsp;
           &nbsp;         
-          <label className="check" for={p.index}><input type="checkbox" checked={p.Present} onChange={e => {props.checkBoxChanged(index, e.target.checked)}}></input><p className="box"></p></label>      
+          <label className="check" for={p.index}><input type="checkbox" checked={p.present} onChange={e => {props.checkBoxChanged(index, e.target.checked)}}></input><p className="box"></p></label>      
           &nbsp;
           &nbsp;
           &nbsp;
