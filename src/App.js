@@ -6,13 +6,15 @@ import Printa from './Printa';
 function App() {
   
 
+  //[
+ //  {firstName: "Peter", lastName: "Appelgren", Age: "102", Present:true},
+  // {firstName: "Britta", lastName: "Börjesson", Age: "10", Present:false},
+   //{firstName: "Gösta", lastName: "Ekman", Age: "23", Present:true},
+   //{firstName: "Ander", lastName: "Person", Age: "19", Present:true},
+  //])
 
-  const [pokemons, setPokemons] = useState([
-   {firstName: "Peter", lastName: "Appelgren", Age: "102", Present:true},
-   {firstName: "Britta", lastName: "Börjesson", Age: "10", Present:false},
-   {firstName: "Gösta", lastName: "Ekman", Age: "23", Present:true},
-   {firstName: "Ander", lastName: "Person", Age: "19", Present:true},
-  ])
+
+ const [pokemons, setPokemons] = useState([])
 
  const [omegaHook, callOmegaHook] = useState(9999)
 
@@ -71,6 +73,12 @@ function App() {
 
 
   function checkBoxChanged(i, h){
+   
+   
+   
+   
+   
+   
     const cBoxchanged = [...pokemons];
     cBoxchanged[i].Present = h;
     setPokemons(cBoxchanged);

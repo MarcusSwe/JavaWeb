@@ -50,7 +50,7 @@ function PrintaPoks(props){
           &nbsp;
           &nbsp;
           &nbsp;
-          <button className="square shape" onClick={e => {setSida(true); XsetPokemons(p.firstName); XsetLastname(p.lastName); i = index; XsetNumber(p.Age); XsetPresent(p.Present)}}> <span class="text2">edit</span> </button>
+          <button className="square shape" onClick={e => {setSida(true); XsetPokemons(p.name); XsetLastname(p.last_name); i = index; XsetNumber(p.age); XsetPresent(p.present)}}> <span class="text2">edit</span> </button>
           &nbsp;
           <button className="square shape" onClick={e => {props.removePokemon(index)}}><span class="text2">del</span></button>                   
           </div>)}
