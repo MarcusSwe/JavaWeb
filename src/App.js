@@ -76,13 +76,24 @@ function App() {
     setPokemons(cBoxchanged);
   }
 
-  function updateUser(i, firstname, lastname, age, Ypresent){
-    const updateUsers = [...pokemons];
-    updateUsers[i].firstName = firstname;
-    updateUsers[i].lastName = lastname;
-    updateUsers[i].Age = age;
-    updateUsers[i].Present = Ypresent;
-    setPokemons(updateUsers);
+  function updateUser(i, Xfirstname, Xlastname, Xage, Ypresent){
+    
+    let omega = Math.floor(Math.random()* 10000000000);
+
+    async function fetchUpdate(){
+      const resp = await fetch(`http://localhost:8080/api/student/${pokemons[i].student_id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: Xfirstname,
+          last_name: Xlastname,
+          age: Xage,          
+          present: Ypresent
+        })          
+      })                 
+    }
+    fetchUpdate(); 
+    callOmegaHook(omega);   
   }
 
   return (
