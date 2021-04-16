@@ -7,7 +7,6 @@ let i = 0;
 let name = "";
 let lastName = "";
 let age = 0;
-//let present = false;
 
 export default function PrintaPokemon(props){
 
@@ -16,23 +15,6 @@ const [Xpokemons, XsetPokemons] = useState()
 const [Xlastname, XsetLastname] = useState()
 const [Xnumber, XsetNumber] = useState()
 const [Xpresent, XsetPresent] = useState()
-
-
-// lägg fetch från spring här istället????
-/*useEffect(() => {
-  async function XfetchPokemons(){
-    const resp = await fetch(y)
-    const pokemon = await resp.json()    
-    const pokemon500 = [];
-    pokemon500.push(pokemon.abilities)
-    pokemon500.push(pokemon.sprites)
-    pokemon500.push(pokemon.height)
-    pokemon500.push(pokemon.moves)    
-    XsetPokemons(pokemon500);      
-  }
-  XfetchPokemons();        
-},[sida]);*/
-
 
 
 function PrintaPoks(props){  
@@ -67,7 +49,6 @@ function PrintaPoks(props){
     </div>
   )
 }
-
 
 
 function PrintaInfo(props){ 

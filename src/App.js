@@ -6,19 +6,10 @@ import Printa from './Printa';
 function App() {
   
 
-  //[
- //  {firstName: "Peter", lastName: "Appelgren", Age: "102", Present:true},
-  // {firstName: "Britta", lastName: "Börjesson", Age: "10", Present:false},
-   //{firstName: "Gösta", lastName: "Ekman", Age: "23", Present:true},
-   //{firstName: "Ander", lastName: "Person", Age: "19", Present:true},
-  //])
-
-
  const [pokemons, setPokemons] = useState([])
-
  const [omegaHook, callOmegaHook] = useState(9999)
 
-  // lägg fetch från härifrån istållet??
+ 
   useEffect(() => {
     async function fetchPokemons(){
       const resp = await fetch('http://localhost:8080/api/students')
@@ -32,10 +23,8 @@ function App() {
 
  
  
-  function removePokemon(x){
-  
+  function removePokemon(x){  
    let omega = Math.floor(Math.random()* 10000000000);
-
     async function fetchDel(){
       const resp = await fetch(`http://localhost:8080/api/student/${pokemons[x].student_id}`, {
         method: 'DELETE',
@@ -51,9 +40,7 @@ function App() {
 
 
   function addUser(Xfirstname, Xlastname, Xage, Ypresent){
-
   let omega = Math.floor(Math.random()* 10000000000);
-
     async function fetchAdd(){
       const resp = await fetch('http://localhost:8080/api/student', {
         method: 'POST',
@@ -75,7 +62,6 @@ function App() {
   function checkBoxChanged(i, h){
    
     let omega = Math.floor(Math.random()* 10000000000);
-
     async function fetchCheck(){
       const resp = await fetch(`http://localhost:8080/api/student/${pokemons[i].student_id}`, {
         method: 'PUT',
@@ -89,14 +75,11 @@ function App() {
       })                 
     }
     fetchCheck(); 
-    callOmegaHook(omega);    
-  
+    callOmegaHook(omega);     
   }
 
-  function updateUser(i, Xfirstname, Xlastname, Xage, Ypresent){
-    
+  function updateUser(i, Xfirstname, Xlastname, Xage, Ypresent){    
     let omega = Math.floor(Math.random()* 10000000000);
-
     async function fetchUpdate(){
       const resp = await fetch(`http://localhost:8080/api/student/${pokemons[i].student_id}`, {
         method: 'PUT',
@@ -126,7 +109,6 @@ function App() {
   )
  
 }
-
 
 export default App;
 
