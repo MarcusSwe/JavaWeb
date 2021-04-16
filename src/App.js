@@ -74,14 +74,23 @@ function App() {
 
   function checkBoxChanged(i, h){
    
-   
-   
-   
-   
-   
-    const cBoxchanged = [...pokemons];
-    cBoxchanged[i].Present = h;
-    setPokemons(cBoxchanged);
+    let omega = Math.floor(Math.random()* 10000000000);
+
+    async function fetchCheck(){
+      const resp = await fetch(`http://localhost:8080/api/student/${pokemons[i].student_id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: pokemons[i].name,
+          last_name: pokemons[i].last_name,
+          age: pokemons[i].age,          
+          present: h
+        })          
+      })                 
+    }
+    fetchCheck(); 
+    callOmegaHook(omega);    
+  
   }
 
   function updateUser(i, Xfirstname, Xlastname, Xage, Ypresent){
